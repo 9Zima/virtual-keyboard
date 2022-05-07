@@ -1,0 +1,13 @@
+.key {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    background: #3c3d44;
+    color: aliceblue;
+    font-size: 20px;
+    font-family: sans-serif;
+    align-items: center;
+    justify-content: center;
+    border: 2px black solid;
+    border-radius: 5px;
+}
