@@ -1,6 +1,7 @@
 // import {engLayout} from "./js/key_layouts/eng_layout";
-import {Key} from "./js/blocks/key.js";
+import {Keyboard} from "./js/blocks/keyboard.js"
 
-let elem = new Key("ф", "Ф", "a", "A")
-document.body.append(elem.keyElement)
-console.log(elem)
+
+let keyboard = new Keyboard()
+document.body.append(keyboard.keyboardElement)
+console.log(keyboard)

@@ -25,25 +25,21 @@ class Key {
             span = document.createElement("span");
             switch (i) {
             case 0:
-                span.textContent = this.rus;
-                // span.classList.add(this.eng);
+                span.innerHTML = this.rus;
                 rus.append(span);
                 break;
             case 1:
-                span.textContent = this.rusShifted;
-                // span.classList.add(this.engShifted);
+                span.innerHTML = this.rusShifted;
                 rus.append(span);
                 span.hidden = true;
                 break;
             case 2:
-                span.textContent = this.eng;
-                // span.classList.add(this.eng);
+                span.innerHTML = this.eng;
                 eng.append(span);
                 span.hidden = true;
                 break;
             case 3:
-                span.textContent = this.engShifted;
-                // span.classList.add(this.engShifted);
+                span.innerHTML = this.engShifted;
                 eng.append(span);
                 span.hidden = true;
                 break;
