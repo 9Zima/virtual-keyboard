@@ -4,7 +4,7 @@
     height: 50px;
     background: #1b6923;
     color: aliceblue;
-    font-size: 19px;
+    font-size: 18px;
     font-family: sans-serif;
     align-items: center;
     justify-content: center;
@@ -20,10 +20,38 @@
 }
 
 .keyboard {
+    box-sizing: border-box;
     margin: auto;
-    /* width: 1280px; */
+    border-radius: 15px;
+    padding: 15px;
+    width: 980px;
     display: flex;
     flex-wrap: wrap;
     gap: 3px;
     background: #1d6c59;
 }
+
+.backspace, .tab, .enter {
+    flex-grow: 10;
+}
+
+.shift {
+    flex-basis: 100px;
+    flex-grow: 1;
+}
+
+.space {
+    flex-basis: 100px;
+    flex-grow: 10;
+}
+
+.capslock {
+    flex-basis: 130px;
+    flex-grow: 1;
+}
+
+.enter {
+    flex-basis: 100px;
+    flex-grow: 1;
+}
+

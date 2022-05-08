@@ -45,7 +45,7 @@ class Keyboard {
                 key.keyElement.classList.add("alt")
             break;
             case "RollingScopesSchool":
-                key.keyElement.classList.add("rolling-scopes-school")
+                key.keyElement.classList.add("space")
             break;
             }
             keyboard.append(key.keyElement);
