@@ -1,0 +1,128 @@
+.wrapper {
+    margin: auto;
+    width: 1100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    border: 2px black solid;
+    background: #1b6923;
+}
+
+p {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 35px;
+    margin-bottom: 0;
+}
+
+textarea {
+    width: 870px;
+    height: 250px;
+    margin: 20px;
+    padding: 15px;
+    font-size: 17px;
+    border: 3px solid rgb(174, 31, 31)
+}
+
+.key {
+    display: flex;
+    flex-basis: 50px;
+    height: 50px;
+    background: #1b6923;
+    color: aliceblue;
+    font-size: 18px;
+    font-family: sans-serif;
+    align-items: center;
+    justify-content: center;
+    border: 2px black solid;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.darken {
+    background: #0f4614;
+}
+
+.key:hover {
+    transition: 0.3s;
+    cursor: pointer;
+    background: #0c300f;
+}
+
+.keyboard {
+    box-sizing: border-box;
+    margin: auto;
+    border-radius: 15px;
+    padding: 15px;
+    width: 980px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    background: #1d6c59;
+    border: 3px solid rgb(0, 0, 0)
+}
+
+
+.pressed {
+    transition: 0.3s;
+    cursor: pointer;
+    background: #0c300f;
+    border-radius: 25px;
+}
+
+.Backspace, .Tab, .Enter {
+    flex-grow: 2;
+}
+
+.Tab {
+    flex-basis: 70px;
+}
+
+.ShiftLeft {
+    flex-basis: 100px;
+    flex-grow: 5;
+}
+
+.ShiftRight {
+    flex-basis: 100px;
+    flex-grow: 5;
+}
+
+.Space {
+    flex-basis: 100px;
+    flex-grow: 10;
+}
+
+.CapsLock {
+    flex-basis: 150px;
+    flex-grow: 6;
+}
+
+.Enter {
+    flex-basis: 150px;
+    flex-grow: 5;
+}
+
+/* .ArrowUp {
+    flex-basis: 50px;
+    flex-shrink: 5;
+}
+.ArrowLeft {
+    flex-basis: 50px;
+    flex-shrink: 5;
+}
+.ArrowRight {
+    flex-basis: 50px;
+    flex-shrink: 5;
+}
+.ArrowDown {
+    flex-basis: 50px;
+    flex-shrink: 5;
+} */
+
+
