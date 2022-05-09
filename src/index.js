@@ -8,7 +8,7 @@ let describ = document.createElement("p")
 
 wrapper.classList.add("wrapper")
 header.textContent = "RSS Virtual Keyboard";
-describ.innerHTML = "Created for Windows OS<br>ctrl + alt for changing language";
+describ.innerHTML = "Created for Windows OS<br>ctrl + alt for changing language(not implemented)";
 document.body.append(wrapper);
 wrapper.append(header);
 textarea.id = "text-input"

@@ -26,82 +26,148 @@ class Keyboard {
             keyboard.append(key.keyElement);
             i++;
         }
-
-        // for (let i = 0; i < 65; i++) {
-        //     key = new Key(engLayout[i], engLayoutShifted[i], rusLayout[i], rusLayoutShifted[i]);
-        //     switch (key.keyElement.querySelector("span").innerHTML) {
-        //     case "BackSpace":
-        //         key.keyElement.classList.add("backspace", "darken")
-        //         key.keyElement.id = engLayout[i];
-        //     break;
-        //     case "DEL":
-        //         key.keyElement.classList.add("del", "darken")
-        //     break;
-        //     case "TAB":
-        //         key.keyElement.classList.add("tab", "darken")
-        //     break;
-        //     case "HOME":
-        //         key.keyElement.classList.add("home", "darken")
-        //     break;
-        //     case "CapsLock":
-        //         key.keyElement.classList.add("capslock", "darken")
-        //     break;
-        //     case "Enter":
-        //         key.keyElement.classList.add("enter", "darken")
-        //     break;
-        //     case "Shift":
-        //         key.keyElement.classList.add("shift", "darken")
-        //     break;
-        //     case "END":
-        //         key.keyElement.classList.add("end", "darken")
-        //     break;
-        //     case "CTRL":
-        //         key.keyElement.classList.add("ctrl", "darken")
-        //     break;
-        //     case "ALT":
-        //         key.keyElement.classList.add("alt", "darken")
-        //     break;
-        //     case "RollingScopesSchool":
-        //         key.keyElement.classList.add("space", "darken")
-        //     break;
-        //     }
-        //     keyboard.append(key.keyElement);
-        // }
         document.addEventListener("keydown", this.inputSymbol)
         document.addEventListener("keyup", this.inputSymbol)
         return keyboard
     }
 
     inputSymbol(event) {
-        let textarea = document.getElementById("text-input"),
-            key,
-            spans,
-            symbol
-        if (event.type === "keydown") {
-        key = document.querySelector("." + event.code);
-        spans = key.querySelectorAll("span");
-        for (let span of spans) 
-            span.hidden === true ? span : symbol = span.innerHTML
-        textarea.blur()
-        textarea.value += symbol;
-        key.classList.add("pressed")
-        } else if (event.type === "keyup") {
-            window.setTimeout(() => {
-                key = document.querySelector("." + event.code)
-                key.classList.remove("pressed")
-            }, 60); 
-        } else if (event.type === "click") {
-            key = event.target
-            spans = event.target.tagName === "SPAN" ? symbol = key.innerHTML : key.querySelectorAll("span");
-            // console.log(key.tagName, spans)
-            if (!symbol)
-                for (let span of spans)
-                    span.hidden === true ? span : symbol = span.innerHTML
+        let availableKeys = Object.values(engLayoutObj);
+        if (availableKeys.includes(event.code) || event.type === "click"){
+            let textarea = document.getElementById("text-input"),
+                key,
+                spans,
+                symbol
+            if (event.type === "keydown") {
+            key = document.querySelector("." + event.code);
+            spans = key.querySelectorAll("span");
+            for (let span of spans) 
+                span.hidden === true ? span : symbol = span.textContent
+            key.classList.add("pressed")
             textarea.blur()
-            textarea.value += symbol;
-            symbol = null;
+            if (symbol === "Backspace") {
+                let arr = textarea.value.split("");
+                if (arr.length > 0)
+                arr.length--;
+                arr = arr.join("");
+                textarea.value = arr;
+            }
+            else if (symbol === "Delete") {
+                textarea.focus()
+            } 
+            else if (symbol === "Tab") {
+                textarea.focus()
+                textarea.value += "    "
+                textarea.focus()
+            } 
+            else if (symbol === "Home") {
+                textarea.focus();
+                textarea.setSelectionRange(0, 0);
+            } 
+            else if (symbol === "End") {
+                textarea.focus()
+                textarea.setSelectionRange(textarea.value.length, textarea.value.length);
+            } 
+            else if (symbol === "Capslock") {
+                if (key.classList.contains("pressed"))
+                key.classList.remove("pressed")
+            } 
+            else if (symbol === "Enter") {
+                textarea.value += "\n"
+            } 
+            else if (symbol === "ShiftLeft") {
+                textarea.focus()
+            } 
+            else if (symbol === "ShiftRight") {
+                textarea.focus()
+            } 
+            else if (symbol === "Ctrl") {
+                textarea.focus()
+            } 
+            else if (symbol === "Alt") {
+                textarea.focus()
+            } 
+            else if (symbol === "Space") {
+                textarea.value += " "
+            } 
+            else{
+                textarea.blur()
+                textarea.value += symbol;
+
+            }
+            } else if (event.type === "keyup") {
+                window.setTimeout(() => {
+                    key = document.querySelector("." + event.code)
+                    if (event.code !== "CapsLock")
+                    key.classList.remove("pressed")
+                }, 60); 
+            } else if (event.type === "click") {
+                symbol = null;
+                key = event.target;
+                // console.log(key)
+                spans = key.tagName === "SPAN" ? symbol = key.innerHTML : spans = key.querySelectorAll("span");
+                // console.log(key.tagName, spans)
+                if (!symbol)
+                    for (let span of spans)
+                        span.hidden === true ? span : symbol = span.textContent
+                textarea.blur()
+                key.classList.add("pressed")
+                if (symbol === "Backspace") {
+                    let arr = textarea.value.split("");
+                    if (arr.length > 0)
+                    arr.length--;
+                    arr = arr.join("");
+                    textarea.value = arr;
+                }
+                else if (symbol === "Delete") {
+                    textarea.focus()
+                } 
+                else if (symbol === "Tab") {
+                    textarea.focus()
+                    textarea.value += "    "
+                    textarea.focus()
+                } 
+                else if (symbol === "Home") {
+                    textarea.focus();
+                    textarea.setSelectionRange(0, 0);
+                } 
+                else if (symbol === "End") {
+                    textarea.focus()
+                    textarea.setSelectionRange(textarea.value.length, textarea.value.length);
+                } 
+                else if (symbol === "Capslock") {
+                    if (key.classList.contains("pressed"))
+                    key.classList.remove("pressed")
+                } 
+                else if (symbol === "Enter") {
+                    textarea.value += "\n"
+                } 
+                else if (symbol === "ShiftLeft") {
+                    textarea.focus()
+                } 
+                else if (symbol === "ShiftRight") {
+                    textarea.focus()
+                } 
+                else if (symbol === "Ctrl") {
+                    textarea.focus()
+                } 
+                else if (symbol === "Alt") {
+                    textarea.focus()
+                } 
+                else if (symbol === "Space") {
+                    textarea.value += " "
+                } 
+                else{
+                    textarea.blur()
+                    textarea.value += symbol;
+    
+                }
+                window.setTimeout(() => {
+                    key.classList.remove("pressed")
+                }, 150); 
+            }
         }
-        // event.currentTarget.classList.add("pressed")
+
     }
 
 

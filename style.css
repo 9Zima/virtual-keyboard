@@ -72,30 +72,57 @@ textarea {
     transition: 0.3s;
     cursor: pointer;
     background: #0c300f;
+    border-radius: 25px;
 }
 
-.backspace, .tab, .enter {
+.Backspace, .Tab, .Enter {
+    flex-grow: 2;
+}
+
+.Tab {
+    flex-basis: 70px;
+}
+
+.ShiftLeft {
+    flex-basis: 100px;
+    flex-grow: 5;
+}
+
+.ShiftRight {
+    flex-basis: 100px;
+    flex-grow: 5;
+}
+
+.Space {
+    flex-basis: 100px;
     flex-grow: 10;
 }
 
-.shift {
-    flex-basis: 100px;
-    flex-grow: 1;
+.CapsLock {
+    flex-basis: 150px;
+    flex-grow: 6;
 }
 
-.space {
-    flex-basis: 100px;
-    flex-grow: 10;
+.Enter {
+    flex-basis: 150px;
+    flex-grow: 5;
 }
 
-.capslock {
-    flex-basis: 130px;
-    flex-grow: 1;
+/* .ArrowUp {
+    flex-basis: 50px;
+    flex-shrink: 5;
 }
-
-.enter {
-    flex-basis: 100px;
-    flex-grow: 1;
+.ArrowLeft {
+    flex-basis: 50px;
+    flex-shrink: 5;
 }
+.ArrowRight {
+    flex-basis: 50px;
+    flex-shrink: 5;
+}
+.ArrowDown {
+    flex-basis: 50px;
+    flex-shrink: 5;
+} */
 
 
