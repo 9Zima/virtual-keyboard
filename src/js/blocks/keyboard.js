@@ -97,7 +97,6 @@ class Keyboard {
             }
             } else if (event.type === "keyup") {
                 window.setTimeout(() => {
-                    key = document.querySelector("." + event.code)
                     if (event.code !== "CapsLock")
                     key.classList.remove("pressed")
                 }, 60); 
