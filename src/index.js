@@ -1,7 +1,17 @@
-// import {engLayout} from "./js/key_layouts/eng_layout";
 import {Keyboard} from "./js/blocks/keyboard.js"
 
+let wrapper = document.createElement("div");
+let header = document.createElement("h2");
+let textarea = document.createElement("textarea");
+let keyboard = new Keyboard();
+let describ = document.createElement("p")
 
-let keyboard = new Keyboard()
-document.body.append(keyboard.keyboardElement)
-console.log(keyboard)
+wrapper.classList.add("wrapper")
+header.textContent = "RSS Virtual Keyboard";
+describ.innerHTML = "Created for Windows OS<br>ctrl + alt for changing language";
+document.body.append(wrapper);
+wrapper.append(header);
+textarea.id = "text-input"
+wrapper.append(textarea);
+wrapper.append(keyboard.keyboardElement);
+wrapper.append(describ);
